@@ -7,7 +7,7 @@ public class WinningNumbers {
        Scanner scanner = new Scanner(System.in);
        
        do{
-        //    WinningNumbers.lotteryWinner();
+           GuessingNumbers.userLotteryNumbers(); 
            System.out.println("Would you like to play again? Enter Y to play again or any other key to quit: ");
            playAgain = scanner.nextLine();
 

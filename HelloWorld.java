@@ -4,7 +4,8 @@ public class HelloWorld {
         AsciiChars.printNumbers();
         AsciiChars.printLowerCase();
         AsciiChars.printUpperCase();
-        WinningNumbers.lotteryWinner();
+        // WinningNumbers.lotteryWinner();
+        GuessingNumbers.userLotteryNumbers();
         
     }
 }
