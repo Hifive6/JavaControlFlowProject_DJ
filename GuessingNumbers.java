@@ -8,16 +8,16 @@ import java.util.List;
 public class GuessingNumbers {
     public static void userLotteryNumbers() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Hello and Welcome to the lotter number generator. May I have your name");
+        System.out.println("Hello and Welcome. We are going to generate some Lottery numbers for you. May I have your name");
         String userName = scan.nextLine();
         String name = userName.substring(0, 1).toUpperCase() + userName.substring(1);
-        System.out.println("Hello " + name + "!! Let get you these lottery numbers, what do you think: yes or no? ");
+        System.out.println("Hello " + name + "!! Lets get those lottery numbers. Would you like to begin: yes or no? ");
         String userAnswer = scan.nextLine();
 
         if(userAnswer.equalsIgnoreCase("y") || (userAnswer.equalsIgnoreCase(("yes")))){
-            System.out.println("Great to hear. Please Answer the following Questions so we can give you the proper lottery numbers: ");
+            System.out.println("Great to hear. Please answer the following questions so we can give you your  lottery numbers: ");
         } else {
-            System.out.println("Sorry to here that " + name + " Please return later to complete the the questions");
+            System.out.println("Sorry to here that " + name + " Please return later to complete the the questions.");
             System.exit(0);
         }
         
@@ -29,31 +29,34 @@ public class GuessingNumbers {
             String favoritePet;
             int petAge;
             int luckyNumber;
-            int jerseyNumber;
             int carYear;
             int randomUserNumber;
             String favoriteActor;
-
+            
             do{
                 System.out.print("Do you have a red car: yes or no ");
                 redCar = scan.next();
-
+                
                 System.out.print("What is the name of your favorite pet: ");
                 favoritePet = scan.next();
-
+                
                 System.out.print("How old is this pet: ");
                 petAge = scan.nextInt();
-
+                
                 System.out.print("What is your lucky number: ");
                 luckyNumber = scan.nextInt();
-
-                // System.out.print("Do you have a favorite sport star: y or no?");
-                // String userSportsStar = scan.nextLine();
                 
-                // if((userSportsStar.equalsIgnoreCase("y")) || (userSportsStar.equalsIgnoreCase("yes"))) {
-                //     System.out.println("If so what is their jersey number?");
-                //     jerseyNumber = scan.nextInt();
-                // } 
+                System.out.print("Do you have a favorite sport star: yes or no? ");
+                String userSportsStar = scan.next();
+                
+                
+                int jerseyNumber;
+                int jersey;
+                if((userSportsStar.equalsIgnoreCase("y")) || (userSportsStar.equalsIgnoreCase("yes"))) {
+                    System.out.println("What is their jersey number?");
+                    jerseyNumber = scan.nextInt();
+                    jersey = jerseyNumber;
+                } 
 
                 System.out.print("What is the two-digit model year of your car? ");
                 carYear = scan.nextInt();
@@ -103,6 +106,8 @@ public class GuessingNumbers {
                 lotteryNumber5= lotteryNumber5 - 65;
             }
 
+            // int lotteryNumber7 = jersey + rand1;
+
             List<Integer> lotteryNumbers = new ArrayList<Integer>();
 
             lotteryNumbers.add(lotteryNumber1);
@@ -122,8 +127,8 @@ public class GuessingNumbers {
             System.out.println();
             System.out.println("Your Winning Lottery Numbers are!!!");
 
-            System.out.println(formattedString);
-            System.out.println("Lottery Numbers: " + lotteryNumbers + " Magic Number: " +  magicNumber);
+            // System.out.println(formattedString);
+            System.out.println("Lottery Numbers: " + formattedString + " Magic Number: " +  magicNumber);
 
 
             System.out.println("Would you like to play again: yes or no?");
