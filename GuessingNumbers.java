@@ -33,13 +33,13 @@ public class GuessingNumbers {
                 System.out.print("Do you have a red car: yes or no ");
                 redCar = scan.nextLine();
 
-                System.out.print("What is the name of your favorite pet ");
+                System.out.print("What is the name of your favorite pet: ");
                 favoritePet = scan.nextLine();
 
-                System.out.print("How old is this pet? ");
+                System.out.print("How old is this pet: ");
                 petAge = scan.nextInt();
 
-                System.out.print("What is your lucky number? ");
+                System.out.print("What is your lucky number: ");
                 luckyNumber = scan.nextInt();
 
                 // System.out.print("Do you have a favorite sport star: y or no?");
@@ -57,12 +57,12 @@ public class GuessingNumbers {
                 randomUserNumber = scan.nextInt();
 
                 System.out.println("What is the first name of the your favorite actor or actress? ");
-                favoriteActor = scan.nextLine();
+                favoriteActor = scan.next();
 
                 
 
-                System.out.println("Would you different answers to your questions: yes or no? ");
-                getNumbers = scan.nextLine();
+                System.out.println("Would you like different answers to your questions: yes or no? ");
+                getNumbers = scan.next();
 
 
              } while ((getNumbers.equals("yes")) || (getNumbers.equals("y")));
@@ -85,18 +85,27 @@ public class GuessingNumbers {
             }
 
             int lotteryNumber3 = petAge + carYear;
-            System.out.println("Value of lottery Number 3 is:" + lotteryNumber3);
+            // System.out.println("Value of lottery Number 3 is:" + lotteryNumber3);
 
             int lotteryNumber4 = favoritePet.charAt(2);
-            System.out.println("Value of lottery Number 4 is:" + lotteryNumber4);
+            while(lotteryNumber4 > 65){
+                lotteryNumber4 = lotteryNumber4 - 65;
+            }
+           
             int lotteryNumber5 = favoriteActor.charAt(0);
-            System.out.println("Value of lottery Number 5 is:" + lotteryNumber5);
+            while(lotteryNumber5 > 65){
+                lotteryNumber5= lotteryNumber5 - 65;
+            }
+            
 
-            System.out.printf("Lottery Numbers: %d, %d, %d, %d, %d Magic Number: %d", lotteryNumber1, lotteryNumber2, lotteryNumber3, lotteryNumber4, lotteryNumber5, magicNumber);
+            System.out.println();
+            System.out.println("Your Winning Lottery Numbers are!!!");
+
+            System.out.printf("Lottery Numbers: %d, %d, %d, %d, %d Magic Number: %d%n", lotteryNumber1, lotteryNumber2, lotteryNumber3, lotteryNumber4, lotteryNumber5, magicNumber);
 
 
             System.out.println("Would you like to play again: yes or no?");
-            continueLottery = scan.nextLine();
+            continueLottery = scan.next();
         }while((continueLottery.equalsIgnoreCase("y")) || (continueLottery.equalsIgnoreCase("yes")));
             System.out.println("Thank you goodbye");
             System.exit(0);
