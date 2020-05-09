@@ -17,8 +17,9 @@ public class GuessingNumbers {
         }
         
         String continueLottery;
+        String getNumbers;
+        
         do{
-            String questionsAgain;
             String redCar;
             String favoritePet;
             int petAge;
@@ -29,40 +30,43 @@ public class GuessingNumbers {
             String favoriteActor;
 
             do{
-                System.out.println("Do you have a red car: yes or no");
+                System.out.print("Do you have a red car: yes or no ");
                 redCar = scan.nextLine();
 
-                System.out.println("What is the name of your favorite pet");
+                System.out.print("What is the name of your favorite pet ");
                 favoritePet = scan.nextLine();
 
-                System.out.println("How old is this pet?");
+                System.out.print("How old is this pet? ");
                 petAge = scan.nextInt();
 
-                System.out.println("What is your lucky number?");
+                System.out.print("What is your lucky number? ");
                 luckyNumber = scan.nextInt();
 
-                System.out.println("Do you have a favorite sport star: y or no?");
-                String userSportsStar = scan.nextLine();
+                // System.out.print("Do you have a favorite sport star: y or no?");
+                // String userSportsStar = scan.nextLine();
                 
-                if((userSportsStar.equalsIgnoreCase("y") || userSportsStar.equalsIgnoreCase("yes") {
-                    System.out.println("If so what is their jersey number?")
-                    jerseyNumber = scan.nextInt();
-                } 
+                // if((userSportsStar.equalsIgnoreCase("y")) || (userSportsStar.equalsIgnoreCase("yes"))) {
+                //     System.out.println("If so what is their jersey number?");
+                //     jerseyNumber = scan.nextInt();
+                // } 
 
-                System.out.println("What is the two-digit model year of your car?");
+                System.out.print("What is the two-digit model year of your car? ");
                 carYear = scan.nextInt();
 
-                System.out.println("Not choose a number between 1 - 50?");
+                System.out.print("Now choose a number between 1 - 50? ");
                 randomUserNumber = scan.nextInt();
 
-                System.out.println("What is the first name of the your favorite actor or actress?");
+                System.out.println("What is the first name of the your favorite actor or actress? ");
                 favoriteActor = scan.nextLine();
 
-                System.out.println("Another set of Numbers: yes or no?");
-                questionsAgain = scan.nextLine();
+                
+
+                System.out.println("Would you different answers to your questions: yes or no? ");
+                getNumbers = scan.nextLine();
 
 
-            } while ((questionsAgain.equals("yes")) || (questionsAgain.equals("y")));
+             } while ((getNumbers.equals("yes")) || (getNumbers.equals("y")));
+
             Random random = new Random();
             int rand1 = random.nextInt(20);
             int rand2 = random.nextInt(20);
@@ -81,14 +85,21 @@ public class GuessingNumbers {
             }
 
             int lotteryNumber3 = petAge + carYear;
+            System.out.println("Value of lottery Number 3 is:" + lotteryNumber3);
 
             int lotteryNumber4 = favoritePet.charAt(2);
-
+            System.out.println("Value of lottery Number 4 is:" + lotteryNumber4);
             int lotteryNumber5 = favoriteActor.charAt(0);
+            System.out.println("Value of lottery Number 5 is:" + lotteryNumber5);
 
             System.out.printf("Lottery Numbers: %d, %d, %d, %d, %d Magic Number: %d", lotteryNumber1, lotteryNumber2, lotteryNumber3, lotteryNumber4, lotteryNumber5, magicNumber);
 
-        }
+
+            System.out.println("Would you like to play again: yes or no?");
+            continueLottery = scan.nextLine();
+        }while((continueLottery.equalsIgnoreCase("y")) || (continueLottery.equalsIgnoreCase("yes")));
+            System.out.println("Thank you goodbye");
+            System.exit(0);
 
 
         scan.close();
