@@ -1,18 +1,23 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class GuessingNumbers {
     public static void userLotteryNumbers() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("May I have your name");
+        System.out.println("Hello and Welcome to the lotter number generator. May I have your name");
         String userName = scan.nextLine();
-        
-        System.out.println("Hello " + userName + " Would you like to continue to the interactive portion yes or no? ");
+        String name = userName.substring(0, 1).toUpperCase() + userName.substring(1);
+        System.out.println("Hello " + name + "!! Let get you these lottery numbers, what do you think: yes or no? ");
         String userAnswer = scan.nextLine();
 
         if(userAnswer.equalsIgnoreCase("y") || (userAnswer.equalsIgnoreCase(("yes")))){
-            System.out.println("Great to hear. Please add the following Questions: ");
+            System.out.println("Great to hear. Please Answer the following Questions so we can give you the proper lottery numbers: ");
         } else {
-            System.out.println("Please return later to complete the survery");
+            System.out.println("Sorry to here that " + name + " Please return later to complete the the questions");
             System.exit(0);
         }
         
@@ -31,10 +36,10 @@ public class GuessingNumbers {
 
             do{
                 System.out.print("Do you have a red car: yes or no ");
-                redCar = scan.nextLine();
+                redCar = scan.next();
 
                 System.out.print("What is the name of your favorite pet: ");
-                favoritePet = scan.nextLine();
+                favoritePet = scan.next();
 
                 System.out.print("How old is this pet: ");
                 petAge = scan.nextInt();
@@ -58,8 +63,6 @@ public class GuessingNumbers {
 
                 System.out.println("What is the first name of the your favorite actor or actress? ");
                 favoriteActor = scan.next();
-
-                
 
                 System.out.println("Would you like different answers to your questions: yes or no? ");
                 getNumbers = scan.next();
@@ -85,6 +88,9 @@ public class GuessingNumbers {
             }
 
             int lotteryNumber3 = petAge + carYear;
+            while(lotteryNumber3 > 65){
+                lotteryNumber3 = lotteryNumber2 - 65;
+            }
             // System.out.println("Value of lottery Number 3 is:" + lotteryNumber3);
 
             int lotteryNumber4 = favoritePet.charAt(2);
@@ -96,18 +102,35 @@ public class GuessingNumbers {
             while(lotteryNumber5 > 65){
                 lotteryNumber5= lotteryNumber5 - 65;
             }
+
+            List<Integer> lotteryNumbers = new ArrayList<Integer>();
+
+            lotteryNumbers.add(lotteryNumber1);
+            lotteryNumbers.add(lotteryNumber2);
+            lotteryNumbers.add(lotteryNumber3);
+            lotteryNumbers.add(lotteryNumber4);
+            lotteryNumbers.add(lotteryNumber5);
+
+            Collections.sort(lotteryNumbers);
+            String formattedString = lotteryNumbers.toString()
+            .replace(",", "")  //remove the commas
+            .replace("[", "")  //remove the right bracket
+            .replace("]", "")  //remove the left bracket
+            .trim(); 
             
 
             System.out.println();
             System.out.println("Your Winning Lottery Numbers are!!!");
 
-            System.out.printf("Lottery Numbers: %d, %d, %d, %d, %d Magic Number: %d%n", lotteryNumber1, lotteryNumber2, lotteryNumber3, lotteryNumber4, lotteryNumber5, magicNumber);
+            System.out.println(formattedString);
+            System.out.println("Lottery Numbers: " + lotteryNumbers + " Magic Number: " +  magicNumber);
 
 
             System.out.println("Would you like to play again: yes or no?");
             continueLottery = scan.next();
+
         }while((continueLottery.equalsIgnoreCase("y")) || (continueLottery.equalsIgnoreCase("yes")));
-            System.out.println("Thank you goodbye");
+            System.out.println("Thank you goodbye " + name + " Hope you have great luck with these lottery numbers");
             System.exit(0);
 
 
