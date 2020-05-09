@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 public class GuessingNumbers {
     public static void userLotteryNumbers() {
         Scanner scan = new Scanner(System.in);
@@ -6,7 +7,7 @@ public class GuessingNumbers {
         String userName = scan.nextLine();
 
         while(true){
-            System.out.println("Hello " + userName + " Would you like to continue to the interactive portion? ");
+            System.out.println("Hello " + userName + " Would you like to continue to the interactive portion y or n? ");
             String userAnswer = scan.nextLine();
             
             if(userAnswer.equalsIgnoreCase("n")){
@@ -34,6 +35,26 @@ public class GuessingNumbers {
                     String favoriteActor = scan.next();
                     int maxRandomNumber = 65;
                     int maxMagicNumber = 75;
+
+                    Random random = new Random();
+                    int rand1 = random.nextInt(75);
+                    int rand2 = random.nextInt(20);
+                    int rand3 = random.nextInt(10);
+                    
+
+                    int magicNumber = jerseyNumber * rand2;
+
+                    int lotteryNumber1 = rand1 + luckyNumber;
+                    int lotteryNumber2 = 42;
+                    int lotteryNumber3 = petAge + carYear;
+                    //find 3rd letter of favorite pet, convert letter to value
+                    char thirdLetterInPetName = favoritePet.charAt(3);
+                    int lotteryNumber4 = Character.getNumericValue(thirdLetterInPetName);
+                    System.out.println(lotteryNumber4);
+                    // int lotteryNumber5 = ;
+                    
+
+
                 
                     scan.close();
                 } while(true);
